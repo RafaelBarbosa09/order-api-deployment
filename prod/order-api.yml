@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-api
+  labels:
+    app: order-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-api
+  template:
+    metadata:
+      labels:
+        app: order-api
+    spec:
+      containers:
+      - name: order-api
+        image: rafaelbarbosa09/order-api
+        ports:
+        - containerPort: 3000
+        env:
+          - name: RABBIT_HOST
+            value: broker
+          - name: RABBIT_PORT
+            value: "5672"
+          - name: RABBIT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-user
+                key: username
+          - name: RABBIT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-user
+                key: password
