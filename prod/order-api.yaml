@@ -24,12 +24,12 @@ spec:
             value: broker
           - name: RABBIT_PORT
             value: "5672"
-          - name: RABBIT_USERNAME
+          - name: RABBIT_USER
             valueFrom:
               secretKeyRef:
                 name: rabbit-user
                 key: username
-          - name: RABBIT_PASSWORD
+          - name: RABBIT_PASS
             valueFrom:
               secretKeyRef:
                 name: rabbit-user
