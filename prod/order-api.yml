@@ -34,3 +34,19 @@ spec:
               secretKeyRef:
                 name: rabbit-user
                 key: password
+          - name: HOST_DB
+            value: localhost
+          - name: USER_DB
+            value: postgres
+          - name: PASS_DB
+            value: postgres
+          - name: PORT_DB
+            value: "5432"
+          - name: NAME_DB
+            value: order-db
+          - name: QUEUE_PAYMENT_REQUEST
+            value: beta.payment.request
+          - name: QUEUE_PAYMENT_RESPONSE
+            value: beta.payment.response
+          - name: QUEUE_SUBSCRIPTIONS
+            value: subscription_created
