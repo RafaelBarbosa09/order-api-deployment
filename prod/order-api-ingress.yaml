@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+ 
+metadata:
+  name: order-api
+ 
+spec:
+  ingressClassName: kong
+  rules:
+  - host: order.bloco.live
+    http:
+      paths:
+      - backend:
+          service:
+            name: order-api
+            port:
+              number: 3000
+        path: /
+        pathType: Prefix
