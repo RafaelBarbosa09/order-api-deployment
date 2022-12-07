@@ -35,15 +35,30 @@ spec:
                 name: rabbit-user
                 key: password
           - name: HOST_DB
-            value: localhost
+            valueFrom:
+              secretKeyRef:
+                name: order-db-user
+                key: host
           - name: USER_DB
-            value: postgres
+            valueFrom:
+              secretKeyRef:
+                name: order-db-user
+                key: user
           - name: PASS_DB
-            value: postgres
+            valueFrom:
+              secretKeyRef:
+                name: order-db-user
+                key: pass
           - name: PORT_DB
-            value: "5432"
+            valueFrom:
+              secretKeyRef:
+                name: order-db-user
+                key: port
           - name: NAME_DB
-            value: order-db
+            valueFrom:
+              secretKeyRef:
+                name: order-db-user
+                key: db
           - name: QUEUE_PAYMENT_REQUEST
             value: beta.payment.request
           - name: QUEUE_PAYMENT_RESPONSE
