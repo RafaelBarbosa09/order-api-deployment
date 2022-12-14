@@ -7,4 +7,4 @@ resources:
 images:
   - name: order-api
     newName: rafaelbarbosa09/order-api
-    newTag: 0.2.2
+    newTag: 0.3.0
